@@ -1,6 +1,127 @@
-<html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chiang Mai Greek Yogurt</title>
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      margin: 0;
+      background: #fffaf5;
+      color: #333;
+    }
+
+    header {
+      background-color: #e0f7fa;
+      padding: 20px 40px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #006064;
+      font-size: 2.5em;
+    }
+
+    .tagline {
+      font-size: 1.2em;
+      color: #00796b;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-name {
+      font-size: 1.2em;
+      margin: 15px 0 10px;
+      color: #004d40;
+    }
+
+    .price {
+      font-size: 1.1em;
+      color: #d84315;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #e0f2f1;
+      padding: 20px;
+      text-align: center;
+      color: #004d40;
+      margin-top: 50px;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+  </style>
+</head>
 <body>
-<h1>Natenapha</h1>
-<h2>651510159</h2>
+
+  <header>
+    <h1>Chiang Mai Greek Yogurt</h1>
+    <p class="tagline">อร่อย สุขภาพดี หุ่นเป๊ะ สำหรับนักศึกษาเชียงใหม่!</p>
+  </header>
+
+  <div class="container">
+    <div class="products">
+      
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1589308078054-8320f6c72f06?auto=format&fit=crop&w=600&q=80" alt="Greek Yogurt Original">
+        <div class="product-name">กรีกโยเกิร์ตรสธรรมชาติ</div>
+        <div class="price">฿45</div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1618190976224-bb249faa6d15?auto=format&fit=crop&w=600&q=80" alt="Greek Yogurt with Honey">
+        <div class="product-name">กรีกโยเกิร์ตน้ำผึ้ง</div>
+        <div class="price">฿55</div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1619632531143-99dc06e72763?auto=format&fit=crop&w=600&q=80" alt="Greek Yogurt with Berries">
+        <div class="product-name">กรีกโยเกิร์ตเบอร์รี่</div>
+        <div class="price">฿60</div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    📍 จัดส่งฟรีใน ม.เชียงใหม่ | สั่งวันนี้ สดใหม่ทุกวัน!<br>
+    ติดต่อเรา: @cmgreekyogurt (LINE)
+  </footer>
+
 </body>
 </html>
