@@ -1,127 +1,442 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chiang Mai Greek Yogurt</title>
-  <style>
-    body {
-      font-family: 'Sarabun', sans-serif;
-      margin: 0;
-      background: #fffaf5;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กรีกโยเกิร์ตเพื่อสุขภาพ | สุดยอดของว่างชาว ม.เชียงใหม่</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* กำหนดสีหลักและฟอนต์ */
+        :root {
+            --primary-color: #5C8D89; /* Teal Green - สุขภาพ, สดชื่น */
+            --secondary-color: #F4B942; /* Goldenrod - สดใส, ดึงดูด */
+            --accent-color: #E0F2F1; /* Light Teal - พื้นหลังเบาๆ */
+            --text-color: #333;
+            --light-text-color: #f8f8f8;
+            --dark-text-color: #2c3e50; /* Dark Blue-Gray */
+        }
 
-    header {
-      background-color: #e0f7fa;
-      padding: 20px 40px;
-      text-align: center;
-    }
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth; /* ทำให้การเลื่อนหน้าเว็บนุ่มนวลขึ้น */
+        }
 
-    header h1 {
-      margin: 0;
-      color: #006064;
-      font-size: 2.5em;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    .tagline {
-      font-size: 1.2em;
-      color: #00796b;
-      margin-top: 10px;
-    }
+        /* ส่วนหัวของเว็บไซต์ */
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 50px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
 
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 3.8em;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
 
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
+        header p {
+            font-size: 1.6em;
+            margin-top: 15px;
+            opacity: 0.95;
+        }
 
-    .product-card {
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      width: 280px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
+        /* ส่วนโปรโมชั่นแบนเนอร์ */
+        .promo-banner {
+            background-color: var(--secondary-color);
+            color: var(--dark-text-color);
+            padding: 18px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.4em;
+            animation: pulse 1.8s infinite ease-in-out; /* เพิ่ม animation */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
 
-    .product-card:hover {
-      transform: scale(1.05);
-    }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.02); opacity: 0.95; }
+            100% { transform: scale(1); opacity: 1; }
+        }
 
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+        /* ส่วนเนื้อหาหลัก */
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
 
-    .product-name {
-      font-size: 1.2em;
-      margin: 15px 0 10px;
-      color: #004d40;
-    }
+        .section:nth-of-type(even) { /* สลับสีพื้นหลังของแต่ละ section */
+            background-color: var(--light-text-color);
+        }
 
-    .price {
-      font-size: 1.1em;
-      color: #d84315;
-      font-weight: bold;
-    }
+        h2 {
+            font-size: 3.2em;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
 
-    footer {
-      background-color: #e0f2f1;
-      padding: 20px;
-      text-align: center;
-      color: #004d40;
-      margin-top: 50px;
-    }
+        h2::after { /* เส้นใต้หัวข้อ */
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
 
-    @import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
-  </style>
+        .intro-text {
+            font-size: 1.3em;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            color: #555;
+        }
+
+        /* Grid สำหรับแสดงสินค้า */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 280px; /* กำหนดความสูงของรูปภาพ */
+            object-fit: cover; /* ทำให้รูปภาพพอดีกับการ์ด */
+            border-bottom: 1px solid #eee;
+            border-radius: 20px 20px 0 0; /* มุมมนเฉพาะด้านบน */
+        }
+
+        .product-card-content {
+            padding: 30px;
+            flex-grow: 1; /* ทำให้เนื้อหาขยายเต็มพื้นที่ */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* จัดการพื้นที่ระหว่างชื่อและราคา */
+        }
+
+        .product-card h3 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .product-card p {
+            font-size: 1.15em;
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1; /* ทำให้คำอธิบายขยายเต็มพื้นที่ */
+        }
+
+        .price {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-top: 20px;
+            display: block;
+            text-align: right; /* จัดราคาชิดขวา */
+        }
+
+        /* ส่วน Call to Action */
+        .call-to-action {
+            background: linear-gradient(135deg, var(--primary-color), #4CAF50); /* Gradient background */
+            color: var(--light-text-color);
+            padding: 100px 0;
+            text-align: center;
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .call-to-action h2 {
+            color: var(--light-text-color);
+            margin-bottom: 40px;
+        }
+
+        .call-to-action h2::after {
+            background-color: var(--secondary-color);
+        }
+
+        .call-to-action .cta-text {
+            font-size: 2em;
+            margin-bottom: 50px;
+            font-weight: 600;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--dark-text-color);
+            padding: 20px 45px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-size: 1.6em;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+            display: inline-block; /* ทำให้ปุ่มอยู่ตรงกลางได้ */
+        }
+
+        .btn:hover {
+            background-color: #FFC107; /* Darker Gold */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+        }
+
+        /* ส่วนท้ายเว็บไซต์ */
+        footer {
+            background-color: var(--dark-text-color);
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 40px 0;
+            font-size: 1.1em;
+        }
+
+        footer p {
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 3em;
+            }
+            header p {
+                font-size: 1.4em;
+            }
+            h2 {
+                font-size: 2.5em;
+            }
+            .intro-text {
+                font-size: 1.1em;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+            .product-card img {
+                height: 220px;
+            }
+            .product-card h3 {
+                font-size: 1.7em;
+            }
+            .product-card p {
+                font-size: 1em;
+            }
+            .price {
+                font-size: 1.8em;
+            }
+            .call-to-action .cta-text {
+                font-size: 1.6em;
+            }
+            .btn {
+                padding: 18px 35px;
+                font-size: 1.4em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 0;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1.2em;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            h2 {
+                font-size: 2.2em;
+                margin-bottom: 40px;
+            }
+            .promo-banner {
+                font-size: 1.2em;
+                padding: 15px 0;
+            }
+            .product-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+            .product-card img {
+                height: 250px; /* Adjust height for single column */
+            }
+            .product-card-content {
+                padding: 20px;
+            }
+            .call-to-action {
+                padding: 80px 0;
+            }
+            .call-to-action .cta-text {
+                font-size: 1.4em;
+            }
+            .btn {
+                padding: 15px 30px;
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .intro-text {
+                font-size: 1em;
+                margin-bottom: 40px;
+            }
+            .product-card h3 {
+                font-size: 1.5em;
+            }
+            .price {
+                font-size: 1.6em;
+            }
+            .call-to-action .cta-text {
+                font-size: 1.2em;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            footer {
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>Chiang Mai Greek Yogurt</h1>
-    <p class="tagline">อร่อย สุขภาพดี หุ่นเป๊ะ สำหรับนักศึกษาเชียงใหม่!</p>
-  </header>
-
-  <div class="container">
-    <div class="products">
-      
-      <div class="product-card">
-        <img src="https://cdn.pixabay.com/photo/2021/01/08/15/38/yogurt-5898753_960_720.png" alt="Greek Yogurt Original">
-        <div class="product-name">กรีกโยเกิร์ตรสธรรมชาติ</div>
-        <div class="price">฿45</div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://cdn.pixabay.com/photo/2022/10/26/11/40/yogurt-7546245_960_720.png" alt="Greek Yogurt with Honey">
-        <div class="product-name">กรีกโยเกิร์ตน้ำผึ้ง</div>
-        <div class="price">฿55</div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://cdn.pixabay.com/photo/2020/06/02/07/30/yogurt-5251423_960_720.png" alt="Greek Yogurt with Berries">
-        <div class="product-name">กรีกโยเกิร์ตเบอร์รี่</div>
-        <div class="price">฿60</div>
-      </div>
-
+    <!-- แบนเนอร์โปรโมชั่นพิเศษสำหรับนักศึกษา -->
+    <div class="promo-banner">
+        🎉 โปรโมชั่นสุดคุ้ม! ลด 15% สำหรับนักศึกษาวิทยาลัยเชียงใหม่ เพียงโชว์บัตร! 🎉
     </div>
-  </div>
 
-  <footer>
-    📍 จัดส่งฟรีใน ม.เชียงใหม่ | สั่งวันนี้ สดใหม่ทุกวัน!<br>
-    ติดต่อเรา: @cmgreekyogurt (LINE)
-  </footer>
+    <!-- ส่วนหัวของเว็บไซต์ -->
+    <header>
+        <div class="container">
+            <h1>กรีกโยเกิร์ตเพื่อสุขภาพ</h1>
+            <p>อร่อยง่าย ได้ประโยชน์ เติมพลังให้ชีวิตนักศึกษา ม.เชียงใหม่! 🎓💪</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- ส่วนแนะนำกรีกโยเกิร์ต -->
+        <section class="section">
+            <div class="container">
+                <h2>ความอร่อยที่มาพร้อมสุขภาพดี</h2>
+                <p class="intro-text">
+                    กรีกโยเกิร์ตโฮมเมดของเราผลิตจากนมสดคุณภาพดี เนื้อเนียนนุ่ม เข้มข้น
+                    อุดมไปด้วยโปรตีนและโพรไบโอติกส์ ช่วยให้อิ่มนาน ระบบขับถ่ายดี
+                    เหมาะสำหรับนักศึกษาที่ต้องการพลังงานและดูแลสุขภาพอย่างแท้จริง
+                    เริ่มต้นวันใหม่ หรือเติมพลังระหว่างวันด้วยกรีกโยเกิร์ตของเราสิ!
+                </p>
+                <div class="product-grid">
+                    <!-- สินค้ากรีกโยเกิร์ต 1 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/400x280/81C784/ffffff?text=Greek+Yogurt+Original.jpg" alt="กรีกโยเกิร์ตรสธรรมชาติ">
+                        <div class="product-card-content">
+                            <h3>กรีกโยเกิร์ตรสธรรมชาติ</h3>
+                            <p>เนื้อสัมผัสเข้มข้น รสชาติกลมกล่อม เหมาะสำหรับทานคู่กับผลไม้สดหรือกราโนล่า.</p>
+                            <span class="price">฿69</span>
+                        </div>
+                    </div>
+                    <!-- สินค้ากรีกโยเกิร์ต 2 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/400x280/A5D6A7/ffffff?text=Greek+Yogurt+Honey.jpg" alt="กรีกโยเกิร์ตน้ำผึ้ง">
+                        <div class="product-card-content">
+                            <h3>กรีกโยเกิร์ตน้ำผึ้งแท้</h3>
+                            <p>เพิ่มความหวานละมุนจากน้ำผึ้งป่าแท้ 100% หอมอร่อยลงตัว.</p>
+                            <span class="price">฿75</span>
+                        </div>
+                    </div>
+                    <!-- สินค้ากรีกโยเกิร์ต 3 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/400x280/C8E6C9/ffffff?text=Greek+Yogurt+Mixed+Berry.jpg" alt="กรีกโยเกิร์ตเบอร์รี่รวม">
+                        <div class="product-card-content">
+                            <h3>กรีกโยเกิร์ตเบอร์รี่รวม</h3>
+                            <p>เปรี้ยวอมหวาน สดชื่นด้วยเบอร์รี่หลากชนิด ทั้งสตรอว์เบอร์รี่ บลูเบอร์รี่ และราสเบอร์รี่.</p>
+                            <span class="price">฿85</span>
+                        </div>
+                    </div>
+                    <!-- สินค้ากรีกโยเกิร์ต 4 (ตัวเลือกเพิ่มเติม) -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/400x280/DCE775/ffffff?text=Greek+Yogurt+Granola.jpg" alt="กรีกโยเกิร์ตกราโนล่า">
+                        <div class="product-card-content">
+                            <h3>กรีกโยเกิร์ตกราโนล่า</h3>
+                            <p>เพิ่มความกรุบกรอบและใยอาหารด้วยกราโนล่าโฮมเมด อิ่มอร่อยได้นาน.</p>
+                            <span class="price">฿80</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ส่วนคำโฆษณาและ Call to Action -->
+        <section class="section call-to-action">
+            <div class="container">
+                <h2>หิวเมื่อไหร่ แวะมาได้เลย!</h2>
+                <p class="cta-text">
+                    ไม่ว่าจะรีบไปเรียน ทำโปรเจกต์ดึก หรือแค่อยากหาของว่างอร่อยๆ
+                    กรีกโยเกิร์ตของเราพร้อมเป็นเพื่อนคู่ใจ ให้คุณอิ่มท้องและมีพลัง
+                    ใกล้ ม.เชียงใหม่ แค่นี้เอง!
+                </p>
+                <a href="#contact" class="btn">สั่งซื้อ/สอบถามเพิ่มเติม</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ส่วนท้ายเว็บไซต์และข้อมูลติดต่อ -->
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2025 Greek Yogurt CMU. สงวนลิขสิทธิ์.</p>
+            <p>ติดต่อเรา: Line ID: @GreekyCMU | โทร: 08X-XXX-XXXX</p>
+            <p>ติดตามข่าวสารและโปรโมชั่นได้ที่ Facebook: GreekYogurtCMU</p>
+        </div>
+    </footer>
 
 </body>
-</html
+</html>
